@@ -4,9 +4,17 @@ import config from '../config';
 
 export default class extends Phaser.State {
   init() {
-    this.stage.backgroundColor = '#EDEEC9'
-    this.fontsReady = false
-    this.fontsLoaded = this.fontsLoaded.bind(this)
+    console.log('Boot.init()')
+    this.stage.backgroundColor = '#000'
+
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
+    this.scale.pageAlignHorizontally = true
+    this.scale.pageAlignVertically = true
+
+    this.game.physics.startSystem(Phaser.Physics.ARCADE)
+    this.game.physics.arcade.gravity.y = 1000
+
+    this.game.world.setBounds(0, 0, config.gameWidth, config.gameHeight + 300)
   }
 
   preload() {
@@ -26,16 +34,13 @@ export default class extends Phaser.State {
     this.load.image('loaderBar', './assets/images/loader-bar.png')
   }
 
-  render() {
-    if (config.webfonts.length && this.fontsReady) {
-      this.state.start('Splash')
-    }
-    if (!config.webfonts.length) {
-      this.state.start('Splash')
-    }
+  create () {
+    console.log('Boot.create()')
+    this.game.stage.backgroundColor = '#fff'
+    this.state.start('Preload')
   }
 
-  fontsLoaded() {
-    this.fontsReady = true
+  render () {
+    console.log('Boot.render()')
   }
 }
