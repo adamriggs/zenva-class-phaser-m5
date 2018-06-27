@@ -1,9 +1,9 @@
 import Phaser from 'phaser'
 import WebFont from 'webfontloader'
-import config from '../config';
+import config from '../config'
 
 export default class extends Phaser.State {
-  init() {
+  init () {
     console.log('Boot.init()')
     this.stage.backgroundColor = '#000'
 
@@ -17,7 +17,7 @@ export default class extends Phaser.State {
     this.game.world.setBounds(0, 0, config.gameWidth, config.gameHeight + 300)
   }
 
-  preload() {
+  preload () {
     if (config.webfonts.length) {
       WebFont.load({
         google: {
