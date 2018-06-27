@@ -16,10 +16,10 @@ export default class extends Phaser.State {
     // this.logo = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo')
     // this.logo.anchor.setTo(0.5)
 
-    // this.loaderBg = this.add.sprite(this.game.world.centerX, this.game.world.centerY + 128, 'loaderBg')
-    // this.loaderBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY + 128, 'loaderBar')
-    // centerGameObjects([this.loaderBg, this.loaderBar])
-    // this.load.setPreloadSprite(this.loaderBar)
+    this.loaderBg = this.add.sprite(this.game.world.centerX, this.game.world.centerY + 128, 'loaderBg')
+    this.loaderBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY + 128, 'loaderBar')
+    centerGameObjects([this.loaderBg, this.loaderBar])
+    this.load.setPreloadSprite(this.loaderBar)
   }
 
   create () {
